@@ -1,5 +1,4 @@
 from odoo import models, fields, api
-from odoo.exceptions import UserError
 
 
 class Complaints(models.Model):
@@ -35,6 +34,7 @@ class Complaints(models.Model):
             record.complaint_id = str(record.id).zfill(7)
 
     def action_classify(self):
+        # I have to add a feature here to send an email so that he knows he needs to review this task
         for rec in self:
             rec.status = 'REVIEW'
 
@@ -49,34 +49,22 @@ class Complaints(models.Model):
             rec.status = 'PROGRESS'
 
     def action_plan(self):
-        # print action plan based on DIN5008 standard.
         for rec in self:
+            report_action = self.env.ref('realstate_complaint.report_complaint').report_action(self)  # Pass `self` here
             rec.status = 'PROGRESS'
+            # Generate report
+        return report_action
+
 
     def action_close(self):
-        # send an email
-        # for rec in self:
-        #     # Check if description field is empty
-        #     if rec.service_reply:
-        #         # Send email to tenant
-        #         mail_values = {
-        #             'subject': 'Your Complaint Update - %s' % rec.complaint_id,
-        #             'body_html': '<p>Hello,</p><p>Your complaint has been resolved. Here is the reply provided:'
-        #                          '</p><p>%s</p><p>Thank you.</p>' % rec.service_reply,
-        #             'email_to': rec.email,
-        #         }
-        #         self.env['mail.mail'].create(mail_values).send()
-        #     else:
-        #         mail_values = {
-        #             'subject': 'Your Complaint Update - %s' % rec.complaint_id,
-        #             'body_html': 'Your Issue is Closed' ,
-        #             'email_to': rec.email,
-        #         }
-        #         self.env['mail.mail'].create(mail_values).send()
-
         # Update status
         for rec in self:
             rec.status = 'CLOSED'
+            # send an email
+            # I kept getting the following error: ValueError: A string literal cannot contain NUL (0x00) characters.
+            # Due to the time limit I did not invest more time to solve the issue
+            # template = self.env.ref('realstate_complaint.email_template_complaint_closed')
+            # template.send_mail(rec.id, force_send=True)
 
     def action_solve(self):
         for rec in self:

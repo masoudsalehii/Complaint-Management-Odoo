@@ -1,0 +1,50 @@
+Features of the application:
+- Website view form where the users can fill out the form without any authorization:http://localhost:8015/complaints/form
+- Groups of representative and supervisor are created, and the  users could be assigned to either of them in users part in  odoo settings
+- The pipeline is created
+- The docker file solution is included inside the repository so that the customized image can be built based Odoo 15 image including the custom addon realstate_complaint
+- The action plan button prints out the document inside view form- I still needed some more time implement the feature exactly as it is wished
+
+Yet to develop:
+
+- At some steps it is required to send an email to some user.
+  The feature is implemented but, there were errors with that, and due to the lack of time I did not invest more time to complete sending email feature.
+- Development of the test cases.
+- I would also develop some Dashboard, if I had more time to invest.
+
+
+
+
+The flow of the pipeline:
+
+1- a new complaint record is created by an external user without any authorization through the following link:
+http://localhost:8015/complaints/form
+IMAGE for web form
+2- The record is added to the list of the complaints in a tree view with the state of New. The representative and supervisor can see the list of the complaints.
+3- In the state New, the representative and supervisor can open the complaint record, and they both can click on Classify button, Drop button, And Solved Button:
+   Solved: with clicking on solved button, the state changes to solved:
+	 In the state Solved, the representative and supervisor both can click on Close buthon. 
+	 Loggically when the state changes to Closed, the tenent should be notified by an email. Due to the lack of time the email part is not implemented.
+   Drop: If they click on Drop, the state changes to Closed
+   Classify: if they click on classify button, the state changes to In Review:
+
+   - In the state in Review the supervisor should click on Reviewed button, after the reviewing the issue.
+   - In "In Review" state, the representative will not have the option to click on the Reviewed button.
+IMAGE for REVIEW
+   - After clicking on Reviewed button, the state changes to  progress
+
+   - In progress state, the manager can click on Print Action Plan button, and the representative cannot see this button.
+IMAGE for PROGRESS
+   - After solving the issue, the supervisor or representatvie can click on both Solved or Drop buttons
+
+3- After clicking on Solved button the state changes to solved
+
+
+4- Finally the supervisor or representative can click on the the close button to close the issue
+
+
+
+
+
+
+

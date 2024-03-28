@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Email Template -->
+        <record id="email_template_complaint_closed" model="mail.template">
+            <field name="name">Complaint Closed Notification</field>
+            <field name="email_from">${object.company_id.email or 'noreply@example.com'}</field>
+            <field name="subject">Complaint ${object.complaint_id} Closed</field>
+            <field name="email_to">${object.email}</field>
+            <field name="model_id" ref="model_realstate_complaint_complaints"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.lang}</field>
+            <field name="body_html" type="html">
+
+                    <p>Dear customer, the issue has been resolved.</p>
+
+            </field>
+        </record>
+    </data>
+</odoo>

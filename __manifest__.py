@@ -7,7 +7,7 @@
     'sequence': -105,
     'summary': 'Complaints Management',
     'description': """""",
-    'depends': ['mail', 'base', 'board', 'hr', 'sale', 'project','website_profile'],
+    'depends': ['mail', 'base', 'website_profile'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
@@ -15,6 +15,8 @@
         'views/complaints_views.xml',
         'views/complaint-form-template.xml',
         'views/submit-form-template.xml',
+        'views/email_templates.xml',
+        'reports/report_template.xml',
     ],
     'demo': [],
     'installable': True,

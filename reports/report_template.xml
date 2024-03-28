@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <template id="report_complaint_template">
+            <t t-call="web.html_container">
+                <style>
+                    /* DIN 5008 compliant styles */
+                    .header {
+                        text-align: center;
+                        font-size: 24px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+                    .content {
+                        margin-bottom: 10px;
+                    }
+                    .label {
+                        font-weight: bold;
+                    }
+                    .value {
+                        margin-left: 10px;
+                    }
+                </style>
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">Complaint Report</div>
+                    <div class="content">
+                        <div class="label">Complaint ID:</div>
+                        <div class="value" t-field="o.complaint_id"></div>
+                    </div>
+                    <div class="content">
+                        <div class="label">Flat Address:</div>
+                        <div class="value" t-field="o.flat_address"></div>
+                    </div>
+                    <div class="content">
+                        <div class="label">Complaint Type:</div>
+                        <div class="value" t-field="o.complaint_type"></div>
+                    </div>
+                    <div class="content">
+                        <div class="label">Description:</div>
+                        <div class="value" t-field="o.description"></div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+    <record id="report_complaint" model="ir.actions.report">
+        <field name="name">Complaint Report</field>
+        <field name="model">realstate_complaint.complaints</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">realstate_complaint.report_complaint_template</field>
+        <field name="report_file">realstate_complaint.report_complaint</field>
+    </record>
+</odoo>

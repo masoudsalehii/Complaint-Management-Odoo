@@ -14,9 +14,10 @@
                                 groups='realstate_complaint.group_service_supervisor'/>
                         <button name="action_drop" string="Drop" type="object" class="oe_highlight"/>
                         <button name="action_plan" string="Print Action Plan" type="object" class="oe_highlight"
-                                attrs="{'invisible':[('status','!=','REVIEW')]}"
-                                groups='realstate_complaint.group_service_supervisor'/>
-                        <button name="action_classify" string="Inform Supervisor" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','PROGRESS')]}"
+                                groups='realstate_complaint.group_service_supervisor'
+                        />
+                        <button name="action_classify" string="Classify" type="object" class="oe_highlight"
                                 attrs="{'invisible':[('status','!=','NEW')]}"/>
                         <button name="action_close" string="Close" type="object" class="oe_highlight"
                                 attrs="{'invisible':[('status','!=','SOLVED')]}"/>
