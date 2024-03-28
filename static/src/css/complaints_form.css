@@ -1,0 +1,57 @@
+/* General styles */
+.o_website_form_container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.o_website_form_required {
+  color: red;
+}
+
+/* Specific element styles */
+.col-md-6 {
+  width: 100%;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    width: 50%;
+    float: left;
+  }
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style submit button */
+.o_website_form_submit button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.o_website_form_submit button:hover {
+  background-color: #0056b3;
+}

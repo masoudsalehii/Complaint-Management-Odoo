@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_complaints_form" model="ir.ui.view">
+            <field name="name">complaints.form</field>
+            <field name="model">realstate_complaint.complaints</field>
+            <field name="arch" type="xml">
+                <form string="Complaint">
+                    <header>
+
+                        <button name="action_solve" string="Solved" type="object" class="oe_highlight"/>
+                        <button name="action_review" string="Reviewed" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','REVIEW')]}"
+                                groups='realstate_complaint.group_service_supervisor'/>
+                        <button name="action_drop" string="Drop" type="object" class="oe_highlight"/>
+                        <button name="action_plan" string="Print Action Plan" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','REVIEW')]}"
+                                groups='realstate_complaint.group_service_supervisor'/>
+                        <button name="action_classify" string="Inform Supervisor" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','NEW')]}"/>
+                        <button name="action_close" string="Close" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','SOLVED')]}"/>
+
+
+                        <field name="status" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>Complaint Information</h1>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="flat_address"/>
+                            <field name="complaint_type"/>
+                            <field name="description"/>
+                            <field name="service_reply"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_complaints_tree" model="ir.ui.view">
+            <field name="name">complaints.tree</field>
+            <field name="model">realstate_complaint.complaints</field>
+            <field name="arch" type="xml">
+                <tree string="Complaints">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="complaint_type"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_complaint_form" model="ir.actions.act_window">
+            <field name="name">complaints</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">realstate_complaint.complaints</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_complaint_root" name="Complaints"/>
+        <menuitem id="menu_complaint" name="Complaints" parent="menu_complaint_root" action="action_complaint_form"/>
+    </data>
+</odoo>
+

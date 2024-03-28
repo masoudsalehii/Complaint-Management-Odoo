@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.realstate_complaint.complaints,access_realstate_complaint_complaints,realstate_complaint.model_realstate_complaint_complaints,base.group_user,1,1,1,1

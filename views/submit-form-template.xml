@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="complaints_submit_confirmation">
+        <t t-name="complaints_submit_confirmation">
+            <div>
+                <p>Your complaint has been submitted successfully!</p>
+                <!-- Add any additional content or messages here -->
+            </div>
+        </t>
+    </template>
+</odoo>

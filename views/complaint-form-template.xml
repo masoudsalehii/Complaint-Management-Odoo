@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="complaints_form">
+        <t t-call="website.layout">
+        <div class="o_website_form_container">
+            <form action="/complaints/submit/" method="post" enctype="multipart/form-data"
+                  class="o_website_form" data-mark="*" data-model_name="" data-success-page="">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row">
+                    <div class="col-md-6 form-group o_website_form_required">
+                        <label class="col-form-label" for="name">
+                            Name
+                            <span class="o_website_form_required">*</span>
+                        </label>
+                        <input id="name" type="text" class="form-control" name="name" required="1"/>
+                    </div>
+                    <div class="col-md-6 form-group o_website_form_required">
+                        <label class="col-form-label" for="email">
+                            Email
+                            <span class="o_website_form_required">*</span>
+                        </label>
+                        <input id="email" type="email" class="form-control" name="email" required="1"/>
+                    </div>
+                    <div class="col-md-6 form-group o_website_form_required">
+                        <label class="col-form-label" for="flat_address">
+                            Flat Address
+                            <span class="o_website_form_required">*</span>
+                        </label>
+                        <input id="flat_address" type="text" class="form-control" name="flat_address" required="1"/>
+                    </div>
+                    <div class="col-md-6 form-group o_website_form_required">
+                        <label class="col-form-label" for="complaint_type">
+                            Complaint Type
+                            <span class="o_website_form_required">*</span>
+                        </label>
+                        <select id="complaint_type" class="form-control" name="complaint_type" required="1">
+                            <option value="question">Question</option>
+                            <option value="electrical">Electrical Issue</option>
+                            <option value="heating">Heating Issue</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <div class="col-md-12 form-group o_website_form_required">
+                        <label class="col-form-label" for="description">
+                            Description
+                            <span class="o_website_form_required">*</span>
+                        </label>
+                        <textarea id="description" class="form-control" name="description" required="1"></textarea>
+                    </div>
+                    <div class="col-md-12 form-group o_website_form_submit">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </t>
+    </template>
+</odoo>
