@@ -23,25 +23,25 @@
 ## Pipeline Flow
 
 
-1- a new complaint record is created by an external user without any authorization through the following link:
+- **1**: a new complaint record is created by an external user without any authorization through the following link:
 http://localhost:8015/complaints/form
 <img width="650" alt="1" src="https://github.com/masoudsalehii/Complaint-Management-Odoo/assets/86241995/c2757172-5f29-48b1-9490-963b12010a57">
 
-2- The record is added to the list of the complaints in a tree view with the state of New. The representative and supervisor can see the list of the complaints.
+- **2**: The record is added to the list of the complaints in a tree view with the state of New. The representative and supervisor can see the list of the complaints.
 
 
 
-3- In the state New, the representative and supervisor can open the complaint record, and they both can click on Classify button, Drop button, And Solved Button:
+- **3**: In the state New, the representative and supervisor can open the complaint record, and they both can click on Classify button, Drop button, And Solved Button:
 
-   Solved: with clicking on solved button, the state changes to solved:
+   **Solved**: with clicking on solved button, the state changes to solved:
    
 	 - In the state Solved, the representative and supervisor both can click on Close buthon. 
   
-	 - Loggically when the state changes to Closed, the tenent should be notified by an email. Due to the lack of time the email part is not implemented.
+	 - Logically when the state changes to Closed, the tenant should be notified by an email. Due to the lack of time the email part is not implemented.
   
-   Drop: If they click on Drop, the state changes to Closed
+   **Drop**: If they click on Drop, the state changes to Closed
    
-   Classify: if they click on classify button, the state changes to In Review:
+   **Classify**: if they click on classify button, the state changes to In Review:
 
    - In the state in Review the supervisor should click on Reviewed button, after the reviewing the issue.
      
@@ -59,9 +59,9 @@ http://localhost:8015/complaints/form
 
    - After solving the issue, the supervisor or representatvie can click on both Solved or Drop buttons
 
-3- After clicking on Solved button the state changes to solved
+- **4**: After clicking on Solved button the state changes to solved
 
 
-4- Finally the supervisor or representative can click on the the close button to close the issue
+- **5**: Finally the supervisor or representative can click on the the close button to close the issue
 
 
