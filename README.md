@@ -23,7 +23,7 @@
 ## Pipeline Flow
 
 
-- **1**: a new complaint record is created by an external user without any authorization through the following link:
+- **1**: A new complaint record is created by an external user without any authorization through the following link:
 http://localhost:8015/complaints/form
 <img width="650" alt="1" src="https://github.com/masoudsalehii/Complaint-Management-Odoo/assets/86241995/c2757172-5f29-48b1-9490-963b12010a57">
 
@@ -31,9 +31,9 @@ http://localhost:8015/complaints/form
 
 
 
-- **3**: In the state New, the representative and supervisor can open the complaint record, and they both can click on Classify button, Drop button, And Solved Button:
+- **3**: The representative and supervisor can open the complaint record, and they both can click on the Classify button, Drop button, And Solved Button. Note that the state is New in this step:
 
-   **Solved**: with clicking on solved button, the state changes to solved:
+   **Solved**: By clicking on solved button, the state changes to solved:
    
 	 - In the state Solved, the representative and supervisor both can click on Close buthon. 
   
